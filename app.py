@@ -27,6 +27,8 @@ def bot():
     # Get the event payload
     payload = request.json
 
+    print("**********111111111111*************")
+
     # Check if the event is a GitHub PR creation event
     if not all(k in payload.keys() for k in ['action', 'pull_request']) and \
             payload['action'] == 'opened':
