@@ -34,9 +34,12 @@ def bot():
             payload['action'] == 'opened':
         return "ok"
 
-    owner = payload['repository']['owner']['login']
-    repo_name = payload['repository']['name']
+    print("**********2222*************")
 
+    owner = payload['repository']['owner']['login']
+    print("**********3333*************")
+    repo_name = payload['repository']['name']
+    print("**********4444*************")
     # Get a git connection as our bot
     # Here is where we are getting the permission to talk as our bot and not
     # as a Python webservice
@@ -45,19 +48,23 @@ def bot():
             git_integration.get_installation(owner, repo_name).id
         ).token
     )
+    print("**********5555*************")
     repo = git_connection.get_repo(f"{owner}/{repo_name}")
-
+    print("**********6666*************")
     issue = repo.get_issue(number=payload['pull_request']['number'])
-
+    print("**********7777*************")
     # Call meme-api to get a random meme
     response = requests.get(url='https://meme-api.herokuapp.com/gimme')
+    print("**********8888*************")
     if response.status_code != 200:
         return 'ok'
-
+    print("**********9999*************")
     # Get the best resolution meme
     meme_url = response.json()['preview'][-1]
+    print("**********AAAAA*************")
     # Create a comment with the random meme
     issue.create_comment(f"![Alt Text]({meme_url})")
+    print("**********BBBBB*************")
     return "ok"
 
 
