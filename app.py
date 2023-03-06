@@ -56,6 +56,7 @@ def bot():
     # Call meme-api to get a random meme
     response = requests.get(url='https://meme-api.herokuapp.com/gimme')
     print("**********8888*************")
+    print(response.status_code)
     if response.status_code != 200:
         return 'ok'
     print("**********9999*************")
