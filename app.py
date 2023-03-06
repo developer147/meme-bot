@@ -54,7 +54,6 @@ def bot():
 
     # Get the best resolution meme
     meme_url = response.json()['preview'][-1]
-
     # Create a comment with the random meme
     issue.create_comment(f"![Alt Text]({meme_url})")
     return "ok"
