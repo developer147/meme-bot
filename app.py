@@ -1,3 +1,4 @@
+# resource: https://medium.com/@gilharomri/github-app-bot-with-python-ea38811d7b14
 import os
 import requests
 
